@@ -1,6 +1,8 @@
 return {
 
-	["AstralVaspe"] = {		TagText = "NIGHTBED OWNER",
+	["AstralVaspe"] = {		
+	
+	TagText = "NIGHTBED OWNER",
 
 		TagColor = Color3.fromRGB(255,95,95)
 
@@ -62,7 +64,7 @@ return {
 
 	},
   
-  ["albert_eyestyle"] = {
+        ["albert_eyestyle"] = {
 
 		TagText = "VAPE OWNER",
 
