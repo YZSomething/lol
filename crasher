@@ -6,7 +6,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local SayMessageRequest = ReplicatedStorage:FindFirstChild("SayMessageRequest", true)
 
 while true do
-wait(2)
+wait(1.5)
 if SayMessageRequest then  
         SayMessageRequest:FireServer(Message, "All")
     end
