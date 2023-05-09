@@ -5,8 +5,7 @@ Message = Message .. Unicode:rep(200 - #Message)
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local SayMessageRequest = ReplicatedStorage:FindFirstChild("SayMessageRequest", true)
 
-while true do
-wait(5)
+while _G.Crash == true do wait()
 if SayMessageRequest then  
         SayMessageRequest:FireServer(Message, "All")
     end
