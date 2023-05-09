@@ -7,5 +7,4 @@ local SayMessageRequest = ReplicatedStorage:FindFirstChild("SayMessageRequest", 
 
 if SayMessageRequest then  
         SayMessageRequest:FireServer(Message, "All")
-    end
 end
