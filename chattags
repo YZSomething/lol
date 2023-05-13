@@ -1,38 +1,16 @@
-return {
-	["AstralVaspe"] = {
-		TagText = "NIGHTBED OWNER",
-		TagColor = Color3.fromRGB(255,95,95)
-	},
-	["PrismUserz"] = {
-		TagText = "PRISM USER",
-		TagColor = Color3.fromRGB(255,95,95)
-	},
-	["forgornameboblus"] = {
-		TagText = "YZFloppa",
-		TagColor = Color3.fromRGB(255,95,95)
-	},
-	["Monia_9266"] = {
-		TagText = "NIGHTBED OWNER",
-		TagColor = Color3.fromRGB(255,95,95)
-	},
-	["xAom95"] = {
-		TagText = "NIGHTBED OWNER",
-		TagColor = Color3.fromRGB(255,95,95)
-	},
-	["MoniaReturn"] = {
-		TagText = "VAPE OWNER",
-		TagColor = Color3.fromRGB(255,95,95)
-	},
-	["HellBladeRelease"] = {
-		TagText = "VAPE OWNER",
-		TagColor = Color3.fromRGB(255,95,95)
-	},
-	["YZFloppa_alt"] = {
-		TagText = "VAPE OWNER",
-		TagColor = Color3.fromRGB(255,95,95)
-	},
-	["albert_eyestyle"] = {
-		TagText = "VAPE OWNER",
-		TagColor = Color3.fromRGB(255,95,95)
-	}
-}
+return { 
+         Owners = { 
+                 4589581089, 
+                 4584934336, 
+                 3934106837, 
+                 12608979, -- maxlaser 2010 account 
+                 4129791290, 
+                 2281534513, 
+                 1398233511, 
+                 4600500024, 
+         }, 
+         VapeIcon = { 
+                 "table5x87c7a589vt2f",
+                 "JustAnAverageFloppa2",
+         }, 
+ }
