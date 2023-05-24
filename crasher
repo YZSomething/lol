@@ -1,4 +1,4 @@
-local Message = "Crash by vxpe ⛓" 
+local Message = "huh lol" 
 local Unicode = " "
 Message = Message .. Unicode:rep(200 - #Message)
 
