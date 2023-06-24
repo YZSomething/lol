@@ -367,4 +367,60 @@ end)
     Killaura:UpdateToggle(Killaura.text, Settings.Killaura)
   end
 end
+Library:ToggleUiButton()lfpos = selfrootpos + (killaurarange["Value"] > 14 and (selfrootpos - root.Position).magnitude > 14 and (CFrame.lookAt(selfrootpos, root.Position).lookVector * 4) or Vector3.zero)
+    local sword = getCurrentSword()
+    killauraremote:SendToServer({
+        ["weapon"] = sword.tool,
+        ["entityInstance"] = plr.Character,
+        ["validate"] = {
+            ["raycast"] = {
+                ["cameraPosition"] = hashvec(cam.CFrame.Position),
+                ["cursorDirection"] = hashvec(Ray.new(cam.CFrame.Position, root.CFrame.Position).Unit.Direction)
+            },
+            ["targetPosition"] = hashvec(root.CFrame.Position),
+            ["selfPosition"] = hashvec(selfpos)
+        },
+        ["chargedAttack"] = {["chargeRatio"] = 0}
+    })
+    if killauraswing == true then
+        if Enabled == true then
+            playAnimation("rbxassetid://4947108314")
+        end
+    end
+end
+local Killaura = Tab1Section:NewToggle("Killaura", "Attack players/enemies that are near.", function(callback)
+    if callback then    
+    Enabled = true
+        Settings.Killaura = true
+        RunLoops:BindToHeartbeat("Killaura", 1, function()
+            local plrs = GetAllNearestHumanoidToPosition(killaurarange["Value"] - 0.0001, 1)
+            for i,plr in pairs(plrs) do
+                task.spawn(attackEntity, plr)
+            end
+        end)
+    else
+        Settings.Killaura = false
+        Enabled = false
+        RunLoops:UnbindFromHeartbeat("Killaura")
+    end
+end)
+Tab2Section:NewSlider("Range", "Aura Range", 26, 1, function(val)
+    killaurarange["Value"] = val
+end)	
+
+spawn(function()
+	repeat
+	  wait(1)
+		writefile("MaxUiX/Profiles/OnlyAura.json",game:GetService("HttpService"):JSONEncode(Settings))
+	until false
+end)
+local suc, res = pcall(function()
+	return game:GetService("HttpService"):JSONDecode(readfile("MaxUiX/Profiles/OnlyAura.json"))
+end)
+ if suc and type(res) == "table" then 
+  Settings = res
+  if Killaura then
+    Killaura:UpdateToggle(Killaura.text, Settings.Killaura)
+  end
+end
 Library:ToggleUiButton()
