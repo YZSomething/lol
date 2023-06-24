@@ -1,0 +1,19 @@
+-- Whitelist
+return {
+    "2B749D88-F93C-460B-BB7E-D528289771C5", -- stav (byfron hater)
+    "F10D0C19-0E90-43C7-94BC-272A1EC242E0", -- chang3d
+    "AA678536-A99E-43F9-A63C-EA6EFAE877C2", -- n1san1
+}
+
+local Blacklist {
+    "BD575417-0AA5-44B0-9587-802C9a805136", -- Mont
+    "2B7E4926-420F-446C-96BD-7BC5C6AC57F2", -- vyx (glocked decision)
+     "20320114-562e-45fe-8c2a-8671f7ad3495", -- l0l
+    "1753EAAC-E139-4510-8DD1-5B8ADBEFCD2E", -- rainy
+}
+
+if Blacklist [game:GetService("RbxAnalyticsService"):GetClientId()] then
+    game.Players.LocalPlayer:Kick("blacklisted nn? cry about it")
+end
+
+-- Whitelist
