@@ -1,738 +1,370 @@
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxlaserTechAlt/MaxlaserTechAlt.github.io/main/KavoCustom.lua"))()
 
-
-
-local Window = Library.CreateLib("Cum", "Synapse")
-
+local Window = Library.CreateLib("Shit", "Synapse")
 local entity = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua", true))()
-
 local MaxUiEntity = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxlaserTechAlt/MaxlaserTechAlt.github.io/main/Library/BedwarsFunctionLoader.lua"))()
-
 local lplr = game.Players.LocalPlayer
-
 local plr = game.Players.LocalPlayer
-
 local player = game:GetService("Players")
-
 local cam = workspace.CurrentCamera
-
 local networkownertick = tick()
-
 local isnetworkowner = isnetworkowner or function(part)
-
   if gethiddenproperty(part, "NetworkOwnershipRule") == Enum.NetworkOwnership.Manual then 
-
       sethiddenproperty(part, "NetworkOwnershipRule", Enum.NetworkOwnership.Automatic)
-
       networkownertick = tick() + 8
-
   end
-
   return networkownertick <= tick()
-
 end
-
 do
-
   local oldcharacteradded = entity.characterAdded
-
   entity.characterAdded = function(plr, char, localcheck)
-
       return oldcharacteradded(plr, char, localcheck, function() end)
-
   end
-
   entity.fullEntityRefresh()
-
 end
-
-
 
 local bedwars = {}
-
 local bedwarsData = {}
 
-
-
 local getasset = getsynasset or getcustomasset or function(location) return "rbxasset://"..location end
-
 local getrobloxasset = getassetid or assetrbx or getrobloxpic or function(assetid) return "rbxassetid://"..assetid end
-
 local gamequeue = syn and syn.queue_on_teleport or queue_on_teleport or fluxus and fluxus.queue_on_teleport or function() end
-
 local uis = game:GetService("UserInputService")
-
 local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
-
 local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
-
 local getremote = function(tab)
-
   for i,v in pairs(tab) do
-
       if v == "Client" then
-
           return tab[i + 1]
-
       end
-
   end
-
   return ""
-
 end
-
-
 
 function isAlive(plr)
-
     plr = plr or lplr
-
     if not plr.Character then return false end
-
     if not plr.Character:FindFirstChild("Head") then return false end
-
     if not plr.Character:FindFirstChild("Humanoid") then return false end
-
     return true
-
   end
 
-
-
   local function targetCheck(plr, check)
-
 	return (check and plr.Character.Humanoid.Health > 0 and plr.Character:FindFirstChild("ForceField") == nil or check == false)
-
 end
-
-
 
 local function isPlayerTargetable(plr, target)
-
 	return plr.Team ~= lplr.Team and plr and isAlive(plr) and targetCheck(plr, target)
-
 end
-
-
 
 local function GetAllNearestHumanoidToPosition(distance, amount)
-
 	local returnedplayer = {}
-
 	local currentamount = 0
-
 	if isAlive(lplr) then -- alive check
-
 		for i,v in pairs(game.Players:GetChildren()) do -- loop through players
-
 			if isPlayerTargetable((v), true, true, v.Character ~= nil) and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Head") and currentamount < amount then -- checks
-
 				local mag = (lplr.Character.HumanoidRootPart.Position - v.Character:FindFirstChild("HumanoidRootPart").Position).magnitude
-
 				if mag <= distance then -- mag check
-
 					table.insert(returnedplayer, v)
-
 					currentamount = currentamount + 1
-
 				end
-
 			end
-
 		end
-
 		for i2,v2 in pairs(game:GetService("CollectionService"):GetTagged("Monster")) do -- monsters
-
 			if v2:FindFirstChild("HumanoidRootPart") and currentamount < amount and v2.Name ~= "Duck" then -- no duck
-
 				local mag = (lplr.Character.HumanoidRootPart.Position - v2.HumanoidRootPart.Position).magnitude
-
 				if mag <= distance then -- magcheck
-
 					table.insert(returnedplayer, {Name = (v2 and v2.Name or "Monster"), UserId = 1443379645, Character = v2}) -- monsters are npcs so I have to create a fake player for target info
-
 					currentamount = currentamount + 1
-
 				end
-
 			end
-
 		end
-
 		for i2,v2 in
-
 		pairs(game:GetService("CollectionService"):GetTagged("DiamondGuardian")) do --monsters
-
 			if v2:FindFirstChild("HumanoidRootPart") and currentamount < amount and
-
 			v2.Name ~= "DiamondGuardian" then -- no duck
-
 				local mag = (lplr.Character.HumanoidRootPart.Position - v2.HumanoidRootPart.Position).magnitude
-
 				if mag <= distance then -- magcheck
-
 					table.insert(returnedplayer, {Name = (v2 and v2.Name or "DiamondGuardian"), UserId = 1443379645, Character = v2}) -- monsters are npcs so I have to create a fake player for target info
-
 					currentamount = currentamount + 1
-
 				end
-
 			end
-
 		end
-
 	end
-
 	return returnedplayer
-
 end
-
 local function hashvec(vec)
-
 	return {value = vec}
-
 end
-
   
-
 local RunLoops = {RenderStepTable = {}, StepTable = {}, HeartTable = {}}
-
 do
-
 	function RunLoops:BindToRenderStep(name, num, func)
-
 		if RunLoops.RenderStepTable[name] == nil then
-
 			RunLoops.RenderStepTable[name] = game:GetService("RunService").RenderStepped:Connect(func)
-
 		end
-
 	end
-
-
 
 	function RunLoops:UnbindFromRenderStep(name)
-
 		if RunLoops.RenderStepTable[name] then
-
 			RunLoops.RenderStepTable[name]:Disconnect()
-
 			RunLoops.RenderStepTable[name] = nil
-
 		end
-
 	end
-
-
 
 	function RunLoops:BindToStepped(name, num, func)
-
 		if RunLoops.StepTable[name] == nil then
-
 			RunLoops.StepTable[name] = game:GetService("RunService").Stepped:Connect(func)
-
 		end
-
 	end
-
-
 
 	function RunLoops:UnbindFromStepped(name)
-
 		if RunLoops.StepTable[name] then
-
 			RunLoops.StepTable[name]:Disconnect()
-
 			RunLoops.StepTable[name] = nil
-
 		end
-
 	end
-
-
 
 	function RunLoops:BindToHeartbeat(name, num, func)
-
 		if RunLoops.HeartTable[name] == nil then
-
 			RunLoops.HeartTable[name] = game:GetService("RunService").Heartbeat:Connect(func)
-
 		end
-
 	end
-
-
 
 	function RunLoops:UnbindFromHeartbeat(name)
-
 		if RunLoops.HeartTable[name] then
-
 			RunLoops.HeartTable[name]:Disconnect()
-
 			RunLoops.HeartTable[name] = nil
-
 		end
-
 	end
-
 end
-
 local bedwars = {
-
   ["SprintController"] = KnitClient.Controllers.SprintController,
-
   ["ClientHandlerStore"] = require(lplr.PlayerScripts.TS.ui.store).ClientStore,
-
   ["KnockbackUtil"] = require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil,
-
   ["PingController"] = require(lplr.PlayerScripts.TS.controllers.game.ping["ping-controller"]).PingController,
-
   ["DamageIndicator"] = KnitClient.Controllers.DamageIndicatorController.spawnDamageIndicator,
-
   ["SwordController"] = KnitClient.Controllers.SwordController,
-
   ["ViewmodelController"] = KnitClient.Controllers.ViewmodelController,
-
   ["SwordRemote"] = getremote(debug.getconstants((KnitClient.Controllers.SwordController).attackEntity)),
-
   --["PaintRemote"] = getremote(debug.getconstants(KnitClient.Controllers.PaintShotgunController.fire)),
-
 }
-
-
-
 
 
 local Settings = {
-
 	Sprint = false,
-
 	Velocity = false,
-
     Reach = false,
-
     NoClickDelay = false,
-
     Killaura = false,
-
     Animations = false,
-
     SwordSwing = false,
-
     NoSlow = false,
-
     NoFall = false,
-
     Bob = false,
-
     FovChanger = false,
-
     Breaker = false,
-
     Bank = false,
-
     AntiVoid = false,
-
     Stealer = false
-
 }
 
-
-
 local array = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxlaserTechAlt/MaxlaserTechAlt.github.io/main/Arraylist.lua"))()
-
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxlaserTechAlt/MaxlaserTechAlt.github.io/main/MemzNotify"))()
 
-
-
 local function on(Message, Time)
-
     Notification:SendNotification("Success", Message .. " - Has been enabled!", Time)
-
 end
-
-
 
 local function off(Message, Time)
-
     Notification:SendNotification("Error", Message .. " - Has been disabled!", Time)
-
 end
-
-
 
 local function warn(Message, Time)
-
     Notification:SendNotification("Warning", Message, Time)
-
 end
-
-
 
 local function info(Message, Time)
-
     Notification:SendNotification("Info", Message, Time)
-
 end
 
-
-
-local function maxui(Message, Time)
-
-    Notification:SendNotification("why cum", Message, Time)
-
+local function MaxUi(Message, Time)
+    Notification:SendNotification("Cum ui ofc", Message, Time)
 end
 
-
-
-local Tab1 = Window:NewTab("i cum")
-
+local Tab1 = Window:NewTab("OnlyFeature")
    
-
-    local Tab1Section = Tab1:NewSection("i cum")
-
-
+    local Tab1Section = Tab1:NewSection("ONLY FEATURE IG")
 
 local cam = game:GetService("Workspace").CurrentCamera
-
 local modules = {}
 
-
-
 local BedwarsSwords = require(game:GetService("ReplicatedStorage").TS.games.bedwars["bedwars-swords"]).BedwarsSwords
-
 function hashFunc(vec) 
-
     return {value = vec}
-
 end
-
 local function GetInventory(plr)
-
     if not plr then 
-
         return {items = {}, armor = {}}
-
     end
-
-
 
     local suc, ret = pcall(function() 
-
         return require(game:GetService("ReplicatedStorage").TS.inventory["inventory-util"]).InventoryUtil.getInventory(plr)
-
     end)
 
-
-
     if not suc then 
-
         return {items = {}, armor = {}}
-
     end
-
-
 
     if plr.Character and plr.Character:FindFirstChild("InventoryFolder") then 
-
         local invFolder = plr.Character:FindFirstChild("InventoryFolder").Value
-
         if not invFolder then return ret end
-
         for i,v in next, ret do 
-
             for i2, v2 in next, v do 
-
                 if typeof(v2) == 'table' and v2.itemType then
-
                     v2.instance = invFolder:FindFirstChild(v2.itemType)
-
                 end
-
             end
-
             if typeof(v) == 'table' and v.itemType then
-
                 v.instance = invFolder:FindFirstChild(v.itemType)
-
             end
-
         end
-
     end
-
-
 
     return ret
-
 end
-
 local function getSword()
-
     local highest, returning = -9e9, nil
-
     for i,v in next, GetInventory(lplr).items do 
-
         local power = table.find(BedwarsSwords, v.itemType)
-
         if not power then continue end
-
         if power > highest then 
-
             returning = v
-
             highest = power
-
         end
-
     end
-
     return returning
-
 end 
 
-
-
 local function runcode(func)
-
 	func()
-
 end
-
 local function playAnimation(id) 
-
 	if lplr.Character.Humanoid.Health > 0 then 
-
 		local animation = Instance.new("Animation")
-
 		animation.AnimationId = id
-
 		local animatior = lplr.Character.Humanoid.Animator
-
 		animatior:LoadAnimation(animation):Play()
-
 	end
-
 end
-
 runcode(function()
-
 	local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
-
 	local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
-
 	local InventoryUtil = require(game:GetService("ReplicatedStorage").TS.inventory["inventory-util"]).InventoryUtil
-
 	modules = {
-
 		AttackRemote = getremote(debug.getconstants(getmetatable(KnitClient.Controllers.SwordController).attackEntity)),
-
 		BlockController = require(game:GetService("ReplicatedStorage")["rbxts_include"]["node_modules"]["@easy-games"]["block-engine"].out).BlockEngine,
-
 		BlockController2 = require(game:GetService("ReplicatedStorage")["rbxts_include"]["node_modules"]["@easy-games"]["block-engine"].out.client.placement["block-placer"]).BlockPlacer,
-
 		BlockEngine = require(lplr.PlayerScripts.TS.lib["block-engine"]["client-block-engine"]).ClientBlockEngine,
-
 		ClientHandler = Client,
-
 		getCurrentInventory = function(plr)
-
 			local plr = plr or lplr
-
 			local suc, result = pcall(function()
-
 				return InventoryUtil.getInventory(plr)
-
 			end)
-
 			return (suc and result or {
-
 				["items"] = {},
-
 				["armor"] = {},
-
 				["hand"] = nil
-
 			})
-
 		end,
-
 		ItemMeta = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.item["item-meta"]).getItemMeta, 1),
-
 		KnockbackUtil = require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil,
-
 		SprintCont = KnitClient.Controllers.SprintController,
-
 		SwordController = KnitClient.Controllers.SwordController
-
 	}
-
 end)
-
 local function getCurrentSword()
-
 	local sword, swordslot, swordrank = nil, nil, 0
-
 	for i5, v5 in pairs(modules.getCurrentInventory().items) do
-
 		if v5.itemType:lower():find("sword") or v5.itemType:lower():find("blade") or v5.itemType:lower():find("dao") or v5.itemType:lower():find("scythe") then
-
 			if modules.ItemMeta[v5.itemType].sword.damage > swordrank then
-
 				sword = v5
-
 				swordslot = i5
-
 				swordrank = modules.ItemMeta[v5.itemType].sword.damage
-
 			end
-
 		end
-
 	end
-
 	return sword, swordslot
-
 end
-
-
-
 
 
 local Tab1Section = Tab1:NewSection("Aura")
-
 local killauraswing = true
-
 local killaurarange = {["Value"] = 26}
-
 local killauraremote = modules.ClientHandler:Get(modules.AttackRemote)
-
 local Killaura = false
-
 local function attackEntity(plr)
-
     local root = plr.Character.HumanoidRootPart
-
     if not root then
-
         return nil
-
     end
-
     local selfrootpos = lplr.Character.HumanoidRootPart.Position
-
     local selfpos = selfrootpos + (killaurarange["Value"] > 14 and (selfrootpos - root.Position).magnitude > 14 and (CFrame.lookAt(selfrootpos, root.Position).lookVector * 4) or Vector3.zero)
-
     local sword = getCurrentSword()
-
     killauraremote:SendToServer({
-
         ["weapon"] = sword.tool,
-
         ["entityInstance"] = plr.Character,
-
         ["validate"] = {
-
             ["raycast"] = {
-
                 ["cameraPosition"] = hashvec(cam.CFrame.Position),
-
                 ["cursorDirection"] = hashvec(Ray.new(cam.CFrame.Position, root.CFrame.Position).Unit.Direction)
-
             },
-
             ["targetPosition"] = hashvec(root.CFrame.Position),
-
             ["selfPosition"] = hashvec(selfpos)
-
         },
-
         ["chargedAttack"] = {["chargeRatio"] = 0}
-
     })
-
     if killauraswing == true then
-
         if Enabled == true then
-
             playAnimation("rbxassetid://4947108314")
-
         end
-
     end
-
 end
-
 local Killaura = Tab1Section:NewToggle("Killaura", "Attack players/enemies that are near.", function(callback)
-
     if callback then    
-
     Enabled = true
-
         Settings.Killaura = true
-
         RunLoops:BindToHeartbeat("Killaura", 1, function()
-
             local plrs = GetAllNearestHumanoidToPosition(killaurarange["Value"] - 0.0001, 1)
-
             for i,plr in pairs(plrs) do
-
                 task.spawn(attackEntity, plr)
-
             end
-
         end)
-
     else
-
         Settings.Killaura = false
-
         Enabled = false
-
         RunLoops:UnbindFromHeartbeat("Killaura")
-
     end
-
 end)
-
 Tab2Section:NewSlider("Range", "Aura Range", 26, 1, function(val)
-
     killaurarange["Value"] = val
-
 end)	
 
-
-
 spawn(function()
-
 	repeat
-
 	  wait(1)
-
 		writefile("MaxUiX/Profiles/OnlyAura.json",game:GetService("HttpService"):JSONEncode(Settings))
-
 	until false
-
 end)
-
 local suc, res = pcall(function()
-
 	return game:GetService("HttpService"):JSONDecode(readfile("MaxUiX/Profiles/OnlyAura.json"))
-
 end)
-
  if suc and type(res) == "table" then 
-
   Settings = res
-
   if Killaura then
-
     Killaura:UpdateToggle(Killaura.text, Settings.Killaura)
-
   end
-
 end
-
 Library:ToggleUiButton()
-
