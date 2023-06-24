@@ -1,6 +1,6 @@
 local lplr = game:GetService("Players").LocalPlayer
 local playersService = game:GetService("Players")
-local whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/Chattags/main/stupidwhitelists.lua"))()
+local whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/YZSomething/lol/main/chattags"))()
 local FunctionsLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/NightbedForRoblox/main/Libraries/FunctionsHandler.lua"))()
 local entityLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua"))()
 
