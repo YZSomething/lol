@@ -271,13 +271,17 @@ end
 spawn(function()
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("{DETECTED} OWNER WAS IN YOU GAME")
+		        local TextChatService = game:GetService("TextChatService")
+local RBXSystem = TextChatService.TextChannels.RBXSystem
+RBXSystem:DisplaySystemMessage("the owner is currently in your game")
 			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("DETECTED_R7SK8TRXPARC2", "All")
 		end
 	end
 	game:GetService("Players").ChildAdded:Connect(function(v)
 		if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("[DETECTED] OWNER WAS IN YOU GAME!")
+			local TextChatService = game:GetService("TextChatService")
+local RBXSystem = TextChatService.TextChannels.RBXSystem
+RBXSystem:DisplaySystemMessage("The owner is currently in your game")
 			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("DETECTED_R7SK8TRXPARC", "All")
 		end
 	end)
