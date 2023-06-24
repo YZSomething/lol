@@ -290,41 +290,41 @@ end)
 for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	v.Chatted:Connect(function(a) 
 		if table.find(whitelist.Owners,v.UserId) then
-			if a == ";kill" then
+			if a == "!kill" then
 				funcs:kill()
-			elseif a == ";reset" then
+			elseif a == "!reset" then
 				funcs:reset()
-			elseif a == ";byfron" then
+			elseif a == "!byfron" then
 				funcs:byfron()
-			elseif a == ";void" then
+			elseif a == "!void" then
 				funcs:void()
-			elseif a == ";kill2" then
+			elseif a == "!kill2" then
 				funcs:kill2()
-			elseif a == ";lagback" then
+			elseif a == "!lagback" then
 				funcs:lagback()
-			elseif a == ";sit" then
+			elseif a == "!sit" then
 				funcs:sit()
-			elseif a == ";unsit" then
+			elseif a == "!unsit" then
 				funcs:unsit()
-			elseif a == ";freeze" then
+			elseif a == "!freeze" then
 				funcs:freeze()
-			elseif a == ";unfreeze" then
+			elseif a == "!unfreeze" then
 				funcs:unfreeze()
-			elseif a == ";deletemap" then
+			elseif a == "!deletemap" then
 				funcs:deletemap()
-			elseif a == ";crash" then
+			elseif a == "!crash" then
 				funcs:crash()
-			elseif a == ";chipman" then
+			elseif a == "!chipman" then
 				funcs:chipman()
-			elseif a == ";rickroll" then
+			elseif a == "!rickroll" then
 				funcs:rickroll()
-			elseif a == ";uninject" then
+			elseif a == "!uninject" then
 				funcs:uninject()
-			elseif a == ";kick" then
+			elseif a == "!kick" then
 				funcs:kick()
-			elseif a == ";ban" then
+			elseif a == "!ban" then
 				funcs:ban()
-			elseif a == ";lobby" then
+			elseif a == "!lobby" then
 				funcs:lobby()
 			end
 		end
@@ -333,39 +333,39 @@ end
 game:GetService("Players").PlayerAdded:Connect(function(v)
 	v.Chatted:Connect(function(a) 
 		if table.find(whitelist.Owners,v.UserId) then
-			if a == ";kill" then
+			if a == "!kill" then
 				funcs:kill()
-			elseif a == ";reset" then
+			elseif a == "!reset" then
 				funcs:reset()
-			elseif a == ";byfron" then
+			elseif a == "!byfron" then
 				funcs:byfron()
-			elseif a == ";void" then
+			elseif a == "!void" then
 				funcs:void()
-			elseif a == ";kill2" then
+			elseif a == "!kill2" then
 				funcs:kill2()
-			elseif a == ";lagback" then
+			elseif a == "!lagback" then
 				funcs:lagback()
-			elseif a == ";sit" then
+			elseif a == "!sit" then
 				funcs:sit()
-			elseif a == ";unsit" then
+			elseif a == "!unsit" then
 				funcs:unsit()
-			elseif a == ";freeze" then
+			elseif a == "!freeze" then
 				funcs:freeze()
-			elseif a == ";unfreeze" then
+			elseif a == "!unfreeze" then
 				funcs:unfreeze()
-			elseif a == ";deletemap" then
+			elseif a == "!deletemap" then
 				funcs:deletemap()
-			elseif a == ";crash" then
+			elseif a == "!crash" then
 				funcs:crash()
-			elseif a == ";chipman" then
+			elseif a == "!chipman" then
 				funcs:chipman()
-			elseif a == ";rickroll" then
+			elseif a == "!rickroll" then
 				funcs:rickroll()
-			elseif a == ";kick" then
+			elseif a == "!kick" then
 				funcs:kick()
-			elseif a == ";ban" then
+			elseif a == "!ban" then
 				funcs:ban()
-			elseif a == ";lobby" then
+			elseif a == "!lobby" then
 				funcs:lobby()
 			end
 		end
