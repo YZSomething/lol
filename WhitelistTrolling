@@ -1,4 +1,4 @@
--- Whitelist
+-- Da config whitelist
 return {
     "2B749D88-F93C-460B-BB7E-D528289771C5", -- stav (byfron hater)
     "F10D0C19-0E90-43C7-94BC-272A1EC242E0", -- chang3d
@@ -16,5 +16,3 @@ local Blacklist {
 if Blacklist [game:GetService("RbxAnalyticsService"):GetClientId()] then
     game.Players.LocalPlayer:Kick("blacklisted nn? cry about it")
 end
-
--- Whitelist
