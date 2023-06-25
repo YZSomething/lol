@@ -15,7 +15,7 @@ end
 function funcs:reset()
 	game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.ResetCharacter:FireServer()
 end
-function func:bad()
+function funcs:bad()
 	game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("feedsomeniggas")
 end
 function funcs:kill2()
