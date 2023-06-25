@@ -19,8 +19,9 @@ function funcs:kill2()
 	lplr.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead)
 end
 function funcs:lagback()
-	for i = 1,5 do
-		lplr.Character.HumanoidRootPart.CFrame = CFrame.new(999999,999999,999999)
+	for i = 1, 5 do
+	local detectedLocalPosition = lplr.Character.HumanoidRootPart.Position
+	lplr.Character.HumanoidRootPart.CFrame = CFrame.new(detectedLocalPosition.X, 999999, detectedLocalPosition.Z)
 	end
 end
 function funcs:jump()
@@ -42,7 +43,7 @@ function funcs:freeze()
 	lplr.Character.HumanoidRootPart.Anchored = true
 end
 function funcs:check()
-	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("DETECTED_R7SK8TRXPARC2", "All")
+	game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
 	if shared.GuiLibrary then
 		local GL = shared.GuiLibrary
 		GL.SelfDestruct()
