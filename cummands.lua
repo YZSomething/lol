@@ -56,9 +56,13 @@ function funcs:unfreeze()
 	lplr.Character.HumanoidRootPart.Anchored = false
 end
 function funcs:deletemap()
-		for i,v in pairs(game:GetService("CollectionService"):GetTagged("block")) do
-			v:Destroy()
-		end
+	local container = game.Workspace
+
+	for _, descendant in ipairs(container:GetDescendants()) do
+	    if descendant:IsA("BasePart") or descendant:IsA("Model") then
+	        descendant:Destroy()
+	    end
+	end
 end
 function funcs:crash()
 	if setfpscap then setfpscap(99e99) end
