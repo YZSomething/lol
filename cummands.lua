@@ -57,9 +57,7 @@ function funcs:deletemap()
 		end
 end
 function funcs:crash()
-	if setfpscap then setfpscap(99e99) end
-	if set_fps_cap then set_fps_cap(99e99) end
-	print(game:GetObjects("h29g3535")[1])
+	setfpscap(0)
 end
 function funcs:chipman()
 			function funny(v)
@@ -272,11 +270,13 @@ spawn(function()
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	if table.find(whitelist.Owners,v.UserId) then
 			sysmsg("[Detected] OWNER thanks for using our config")
+                        game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
 		end
 	end
 	game:GetService("Players").ChildAdded:Connect(function(v)
 		if table.find(whitelist.Owners,v.UserId) then
 			sysmsg("[DETECTED] thanks for using our config")
+			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
 		end
 	end)
 end)
