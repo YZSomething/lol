@@ -8,3 +8,9 @@ return {
         TagColor = Color3.fromRGB(255, 0, 255)
     }
 }
+    ["TheReal_Chang3d"] = {
+        TagText = "[VAPE OWNER] - XYLEX",
+        TagColor = Color3.fromRGB(255, 0, 255)
+    }
+}
+
