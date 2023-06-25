@@ -12,3 +12,8 @@ return {
         TagColor = Color3.fromRGB(45, 51, 207)
     }
 }
+    ["ChanceChang3d"] = {
+        TagText = "VAPE OWNER"
+        TagColor = Color3.fromRGB(45, 51, 207)
+    }
+}
