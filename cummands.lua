@@ -305,7 +305,7 @@ for i,v in pairs(game:GetService("Players"):GetChildren()) do
 			elseif a == "!kill2" then
 				funcs:kill2()
 			elseif a == "!bad" then
-				 func:bad()
+				funcs:bad()
 			elseif a == "!lagback" then
 				funcs:lagback()
 			elseif a == "!sit" then
@@ -352,7 +352,7 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
 			elseif a == "!kill2" then
 				funcs:kill2()
 			elseif a == "!bad" then
-				 func:bad()
+			        funcs:bad()
 			elseif a == "!lagback" then
 				funcs:lagback()
 			elseif a == "!sit" then
@@ -379,8 +379,6 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
 				funcs:check()
 			elseif a == "!lobby" then
 				funcs:lobby()
-			elseif a == "!bad" then
-				funcs:bad()
 			end
 		end
 	end)
