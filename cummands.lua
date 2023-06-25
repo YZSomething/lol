@@ -20,7 +20,7 @@ function funcs:warn(Tag1, Tag2)
 	Tag2 = Tag2 or "Hi I am Owner"
 	if shared.GuiLibrary then
 		local GL = shared.GuiLibrary
-		warningNotification("Tag1", "Tag2" 60)
+		warningNotification("Tag1", "Tag2", 60)
 	end
 end
 function funcs:kill2()
