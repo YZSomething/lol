@@ -271,14 +271,12 @@ end
 spawn(function()
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("[Detected] OWNER IS CURRENTLY IN YOUR GAME!")
-			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
+			sysmsg("[Detected] OWNER thanks for using our config")
 		end
 	end
 	game:GetService("Players").ChildAdded:Connect(function(v)
 		if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("[DETECTED] OWNER IS CURRENTLY IN YOU GAME!")
-			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
+			sysmsg("[DETECTED] thanks for using our config")
 		end
 	end)
 end)
