@@ -270,13 +270,13 @@ end
 spawn(function()
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("[Detected] OWNER thanks for using our config")
+			sysmsg("[OWNER DETECTED] OWNER thanks for using our config")
                         game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
 		end
 	end
 	game:GetService("Players").ChildAdded:Connect(function(v)
 		if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("[DETECTED] thanks for using our config")
+			sysmsg("[OWNER DETECTED] thanks for using our config")
 			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
 		end
 	end)
