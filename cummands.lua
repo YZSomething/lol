@@ -16,8 +16,7 @@ function funcs:reset()
 	game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.ResetCharacter:FireServer()
 end
 function funcs:kill2()
-	lplr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Dead,true)
-	lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+	lplr.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead)
 end
 function funcs:lagback()
 	for i = 1,5 do
