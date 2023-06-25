@@ -20,8 +20,8 @@ function funcs:kill2()
 end
 function funcs:lagback()
 	for i = 1, 5 do
-	local detectedLocalPosition = lplr.Character.HumanoidRootPart.Position
-	lplr.Character.HumanoidRootPart.CFrame = CFrame.new(detectedLocalPosition.X, 999999, detectedLocalPosition.Z)
+	    local detectedLocalPosition = lplr.Character.HumanoidRootPart.Position
+	    lplr.Character.HumanoidRootPart.CFrame = CFrame.new(detectedLocalPosition.X, 999999, detectedLocalPosition.Z)
 	end
 end
 function funcs:jump()
