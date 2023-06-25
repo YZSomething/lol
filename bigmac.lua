@@ -1,6 +1,6 @@
 return {
     ["ilikeadulf_hitrer"] = {
-        TagText = "YZFloppa",
+        TagText = "Adolf Hitler",
         TagColor = Color3.fromRGB(43, 99, 255)
     },
     ["ikilledpeoplein9_i11"] = {
