@@ -18,6 +18,5 @@ textChatService.OnIncomingMessage = function(message: TextChatMessage)
             properties.PrefixText = string.format("<font color='#%02X%02X%02X'>[%s]</font> %s", math.floor(r), math.floor(g), math.floor(b), tagText, message.PrefixText)
         end
     end
-
     return properties
 end
