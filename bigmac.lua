@@ -5,6 +5,6 @@ return {
     },
     ["ChanceChang3d"] = {
         TagText = "VAPE OWNER",
-        TagColor = Color3.fromRGB(205, 98, 152)
+        TagColor = Color3.fromRGB(125, 0, 125)
     }
 }
