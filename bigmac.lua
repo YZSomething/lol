@@ -5,7 +5,7 @@ return {
     }
 }
 return {
-    ["Chancechang3d"] = {
+    ["ChanceChang3d"] = {
         TagText = "VAPE OWNER"
         TagColor = Color3.fromRGB(125, 0, 125)
     }
