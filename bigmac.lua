@@ -11,8 +11,8 @@ return {
         TagText = "n1san1",
         TagColor = Color3.fromRGB(255, 0, 255)
     },
-    ["SubToStavXpl0itz"] = {
-        TagText = "OWNER OF CONFIG",
+    ["helltristhe_greatest"] = {
+        TagText = "n1san1 V2",
         TagColor = Color3.fromRGB(255, 255, 255)
     }
 }
