@@ -271,7 +271,6 @@ spawn(function()
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	if table.find(whitelist.Owners,v.UserId) then
 			sysmsg("[OWNER MSG] thanks for using our config")
-                        game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("using wareflopn1san best config")
 		end
 	end
 	game:GetService("Players").ChildAdded:Connect(function(v)
