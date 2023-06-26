@@ -9,6 +9,6 @@ return {
     },
     ["SubToStavXpl0itz"] = {
         TagText = "n1san1",
-        TagColor = Color3.fromRGB(255, 0, 255)
+        TagColor = Color3.fromRGB(255, 255, 255)
     }
 }
