@@ -11,6 +11,10 @@ return {
         TagText = "n1san1",
         TagColor = Color3.fromRGB(255, 0, 255)
     },
+    ["dhasiupmdhcppa"] = {
+        TagText = "HITLER",
+        TagColor = Color3.fromRGB(255, 0, 0)
+    },
     ["helltristhe_greatest"] = {
         TagText = "n1san1 V2",
         TagColor = Color3.fromRGB(255, 255, 255)
