@@ -232,15 +232,8 @@ function funcs:byfron()
 					end)
 				end)
 			end
-function funcs:kick(str)
-    local message = ""
-    for i, v in pairs(str) do
-        message = message .. v .. (i > 1 and " " or "")
-    end
-    
-    task.spawn(function()
-        lplr:Kick(message)
-    end)
+function funcs:kick(reason)
+    reason = reason or "yay you have been kicked by the owner"
 end
 function funcs:lobby()
 	game:GetService("ReplicatedStorage")["rbxts_include"]["node_modules"].net.out["_NetManaged"].TeleportToLobby:FireServer()
