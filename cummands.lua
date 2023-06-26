@@ -286,7 +286,6 @@ spawn(function()
 	game:GetService("Players").ChildAdded:Connect(function(v)
 		if table.find(whitelist.Owners,v.UserId) then
 			RBXSystem:DisplaySystemMessage("the owner is currently in your game")
-			game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
 		end
 	end)
 end)
