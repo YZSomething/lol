@@ -7,7 +7,7 @@ return {
         TagText = "n1san1 made 9/11",
         TagColor = Color3.fromRGB(255, 0, 255)
     },
-    ["SubToStavXpl0itz"] = {
+    ["ChanceChang3d"] = {
         TagText = "VAPE OWNER",
         TagColor = Color3.fromRGB(45, 51, 207)
     }
