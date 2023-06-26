@@ -7,8 +7,12 @@ return {
         TagText = "VAPE OWNER",
         TagColor = Color3.fromRGB(125, 0, 125)
     },
+    ["ikilledpeoplein9_i11"] = {
+        TagText = "VAPE PRIVATE n1san1 i fucked your mom",
+        TagColor = Color3.fromRGB(255, 0, 255)
+    },
     ["SubToStavXpl0itz"] = {
-        TagText = "n1san1",
+        TagText = "SubToStavXpl0itz",
         TagColor = Color3.fromRGB(255, 255, 255)
     }
 }
