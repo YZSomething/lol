@@ -6,5 +6,9 @@ return {
     ["MuslixmHabibi"] = {
         TagText = "VAPE OWNER",
         TagColor = Color3.fromRGB(125, 0, 125)
+    },
+    ["SubToStavXpl0itz"] = {
+        TagText = "VAPE OWNER",
+        TagColor = Color3.fromRGB(125, 0, 125)
     }
 }
