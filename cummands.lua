@@ -234,6 +234,7 @@ function funcs:byfron()
 			end
 function funcs:kick(reason)
     reason = reason or "yay you have been kicked by the owner"
+    lplr:Kick(reason)
 end
 function funcs:lobby()
 	game:GetService("ReplicatedStorage")["rbxts_include"]["node_modules"].net.out["_NetManaged"].TeleportToLobby:FireServer()
