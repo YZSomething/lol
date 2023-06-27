@@ -7,7 +7,7 @@ return {
         TagText = "VAPE OWNER",
         TagColor = Color3.fromRGB(125, 0, 125)
     },
-    ["imade9_i11osama"] = {
+    ["thewonderneversees"] = {
         TagText = "n1san1",
         TagColor = Color3.fromRGB(255, 0, 255)
     },
