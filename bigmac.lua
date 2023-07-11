@@ -7,9 +7,9 @@ return {
         TagText = "VAPE OWNER",
         TagColor = Color3.fromRGB(125, 0, 125)
     },
-    ["thewonderneversees"] = {
+    ["assasinho_le"] = {
         TagText = "n1san1",
-        TagColor = Color3.fromRGB(255, 0, 255)
+        TagColor = Color3.fromRGB(0, 255, 0)
     },
     ["dhasiupmdhcppa"] = {
         TagText = "HITLER",
