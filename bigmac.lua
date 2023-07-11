@@ -9,7 +9,7 @@ return {
     },
     ["assasinho_le"] = {
         TagText = "n1san1",
-        TagColor = Color3.fromRGB(0, 255, 0)
+        TagColor = Color3.fromRGB(0, 0, 255)
     },
     ["dhasiupmdhcppa"] = {
         TagText = "HITLER",
